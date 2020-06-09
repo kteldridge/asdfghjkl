@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>JavaScript, Reacting to User Input</title>
+        <script>
+            "use strict";
+            var n=0; //the total values entered
+            var myList=[]; //used to store values
+            function getNewValue() {//get the new value and calculate mean
+                myList[n]=parseFloat(documnet.getElementById
+                ("newNumber").value);
+                if (isNaN(myList[n])==false) { //is the value of the number
+                    n++;
+                    var newMean=calculateMean(myList);
+                    document.getElementById("mean").innerHTML=newMean;
+                }
+                document.getElementById("newNumber").value="";
+                document.getElementById("newNumber").focus();
+            }
+            function calculateMean(x) {//calculate the mean
+                var sum=0;
+                for (var i=0; i<n; i++) {
+                    sum+=x[i];
+                }
+                return sum/n;
+            }
+        </script>
+    </head>
+    <body>
+        Input your number
+        <input type="textbox" id="newNumber" size="10">
+        <input type="button" value="submit" onclick="getNewValue()"><br><br>
+        The mean is <span id="mean">N/A</span>
+    </body>
+</html>
